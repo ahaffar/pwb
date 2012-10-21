@@ -1,0 +1,11 @@
+<html>
+<head>
+<title>
+:: Current Date Time ::
+</title>
+</head>
+<body>
+
+The time is {{ date }}
+
+</body></html>

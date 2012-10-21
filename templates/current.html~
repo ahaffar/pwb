@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+
+{% block mbody %}
+{{ block.super }}
+Today's Date is  {{ date }}
+{% endblock %}
+

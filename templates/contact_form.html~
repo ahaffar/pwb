@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{%block title%}
+:: Contact Us ::
+{%endblock%}
+
+{%block body%}
+<div class="row offset1 page-base">
+		<div class="span5">
+		<form class="form-horizantal" action="{%url contacts%}" method="post" enctype="multipart/form-data">
+		{%csrf_token%}	
+		<fieldset>
+			<legend>
+				Reach Me
+			</legend>
+		{% for field in form %}
+			<div class="control-group">
+				<label class="control-label" for="id_{{field.label}}">{{field.label_tag}}</label>
+				{%if field.errors%}
+					<div class="control-group error">
+					<div class="alert alert-error">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					{{ field.errors.as_text }}</div>
+				{%endif%}
+		        <div class="controls">
+		    	        {{ field }}
+			</div>
+		       </div>
+		{% endfor %}	
+		<div class="form-actions">
+				<input type="submit" class="btn btn-primary btn-large" value="Send Message">
+				<button type="button" class="btn btn-large">Reset</button>
+		</div>
+		</fieldset>	
+		</form>
+		</div>
+</div>
+	
+
+{%endblock%}

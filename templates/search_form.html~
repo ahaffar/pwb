@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>
+:: Search Form ::
+</title>
+</head>
+<body>
+<H1>Please type the titile of the book you would like to search for</h1>
+{% if errors %}
+	<ul>
+	 {% for error in errors%}
+		<li style='color:red;'> {{ error }} </li>
+	 {%endfor%}
+	</ul>
+{% endif %}
+<form action="{%url search_results%}" method=get>
+<input type='text' name='text_field'>
+<input type='submit'>
+</form>
+
+</body>
+</html>
+

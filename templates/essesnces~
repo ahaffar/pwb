@@ -1,0 +1,180 @@
+def search(request):
+	if 'text_field'in request.GET and request.GET['text_field']:
+	 query = request.GET['text_field']
+	 poll_search = Poll.objects.filter(question__icontains=query)
+	 return render_to_response('search_results.html',{'query': query, 'poll_search': poll_search})
+	else:
+	 #return HttpResponse('Empty !!!, are you try to fool me')
+	 return render_to_response('search_form.html',{'error': error})
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+def search(request):
+	error = False
+	if 'text_field'in request.GET:
+	 query = request.GET['text_field']
+	 if not query:
+	  error = True
+	 else:
+	  poll_search = Poll.objects.filter(question__icontains=query)
+	  return render_to_response('search_results.html',{'query': query, 'poll_search': poll_search})
+	
+	 #return HttpResponse('Empty !!!, are you try to fool me')
+	return render_to_response('search_form.html',{'error': error})
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+def search(request):
+	errors = []
+	if 'text_field'in request.GET:
+	 query = request.GET['text_field']
+	 if not query:
+	  errors.append('Enter a Search Term, better for you')
+	 elif len(query) > 20:
+	  errors.append('Please Enter at most 20 Char.') 
+	 else:
+	  poll_search = Poll.objects.filter(question__icontains=query)
+	  return render_to_response('search_results.html',{'query': query, 'poll_search': poll_search})
+	
+	 #return HttpResponse('Empty !!!, are you try to fool me')
+	return render_to_response('search_form.html',{'errors': errors})
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+def contact(request):
+	errors = []
+	if request.method == 'POST':
+		if not request.POST.get('subject', ''):
+		  errors.append('Please enter a valid subject')
+		if not request.POST.get('email') and '@' not in requst.POST.get['email']:
+		  errors.append('Please enter a valid email address')
+		if not request.POST.get('msgbody',''):
+		  errors.append('Please enter a valid email address')
+		if not errors:
+            	  send_mail(
+                  request.POST['subject'],
+                  request.POST['msgbody'],
+                  request.POST.get('email', 'noreply@example.com'),
+            		)
+		return HttpResponseRedirect('/contact_us/thanks/')
+	return RequestContext('contact_form.html',{'errors': errors, 'subject': request.POST.get('subject', ''), 'email': 		request.POST.get('emial',''), 'msgbaody': request.POST.get('msgbody', '')})
+
+===========================
+def contact(request):
+	errors = []
+	if request.method == 'POST':
+		if not request.POST.get('subject', ''):
+		  errors.append('Please enter a valid subject')
+		if request.POST.get('email') and '@' not in request.POST.get['email']:
+		  errors.append('Please enter a valid email address')
+		if not request.POST.get('msgbody', ''):
+		  errors.append('Please type something')
+		if not errors:
+            	  send_mail(
+                  request.POST['subject'],
+                  request.POST['msgbody'],
+                  request.POST.get('email', 'noreply@examle.com'),
+            	  ['siteowner@example.com'],
+			)
+===========================
+def contact(request):
+    errors = []
+    if request.method == 'POST':
+        if not request.POST.get('subject', ''):
+            errors.append('Enter a subject.')
+        if not request.POST.get('message', ''):
+            errors.append('Enter a message.')
+        if request.POST.get('email') and '@' not in request.POST['email']:
+            errors.append('Enter a valid e-mail address.')
+        if not errors:
+            send_mail(
+                request.POST['subject'],
+                request.POST['message'],
+                request.POST.get('email', 'noreply@example.com'),
+                ['siteowner@example.com'],
+            )
+
+------------------------------------------------------------
+
+def contact(request):
+	if request.method == 'POST':
+		if not request.POST.get('subject', None):
+		  errors.append('Please enter a valid subject')
+		if request.POST.get('email') and '@' not in request.POST.get('email'):
+		  errors.append('Please enter a valid email address')
+		if not request.POST.get('msgbody', None):
+		  errors.append('Please type something in the message body')
+		if not errors:
+            	  send_mail(
+                  request.POST['subject'],
+                  request.POST['msgbody'],
+                  request.POST.get('email', 'noreply@examle.com'),
+            	  #from address
+		  ['siteowner@example.com'],
+			)
+		  return HttpResponseRedirect('/contact_us/thanks/')
+	return render_to_response('contact_form.html',{'errors': errors, 'subject': request.POST.get('subject', ''), 'email': 		request.POST.get('emial',''), 'msgbody': request.POST.get('msgbody', '')}, context_instance=RequestContext(request))
+
+------------------------------------
+
+def contact(request):
+	if request.method == 'POST':
+	  contact = ContactsForm(request.POST)
+	  if contact.is_valid():
+		data = contact.cleaned_data
+		send_mail(
+			  data['subject'],
+			  data['msgbody'],
+			  data['email'],
+			  ['siteowner@nttdata.com'],
+			 )
+		return HttpResponse('/thanks/')
+	else:
+	 contact = ContactsForm()
+	return render_to_response('contact_form.html',{'contact': contact},context_instance=RequestContext(request))
+
+------------------------------------------------------
+
+
+class DivErrorList(ErrorList):
+     def __unicode__(self):
+         return self.as_divs()
+     def as_divs(self):
+         if not self: return u''
+         return mark_safe('<div class="errorlist">%s</div>' % ''.join([u'<div class="error">%s</div>' % e for e in self]))
+
+
+------------------------------------------------------------------------------
+
+
+    <form class="offset1 sapn4" action="{%url contacts%}" method="post" enctype="multipart/form-data">
+	{%csrf_token%}
+        <table>
+	{% for form in contact_info %}
+		
+		<div>
+			{{ form.label_tag }}
+			{{ form }}
+		</div>
+	{% endfor %}
+        </table>
+        <input type="submit" value="Submit">
+    </form
+------------------
+	def clean_picture(self):
+       		picture = self.cleaned_data.get("image")
+	       	if not picture:
+        	   raise forms.ValidationError("No image!")
+       		else:
+        	   w = ImageFiled.width(picture)
+		   h = ImageFiled.height(picture)
+        	   if w != 100:
+        	       raise forms.ValidationError("The image is %i pixel wide. It's supposed to be 100px" % w)
+        	   if h != 200:
+        	       raise forms.ValidationError("The image is %i pixel high. It's supposed to be 200px" % h)
+       		return picture
+

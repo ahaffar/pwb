@@ -1,0 +1,104 @@
+.page-base
+{
+margin-top: 1em;
+}
+.navbar-inner
+{
+min-height:45px!important;
+font-family: 'Delius Unicase', cursive;
+}
+body
+{
+/*font-family: 'Cabin Condensed', sans-serif;*/
+background: url('../img/grid.png');
+}
+/*.hero-unit h1
+{
+/*font-family: 'Aclonica', sans-serif;
+font-family: 'Gloria Hallelujah', cursive;
+letter-spacing: -2px!important;
+text-shadow: -1px -1px 0 #000000;
+color: #FFFF88;
+font-size: 50px;
+}
+*/
+.dropdown-menu 
+{
+height: auto;
+min-width: 220px;
+}
+.black
+{
+color:#333333;
+}
+.popover
+{
+font-family: 'Gloria Hallelujah', cursive;
+font-family: 'Delius Unicase', cursive;
+}
+.popover-title
+{
+border-bottom: 4px solid #8f8f9b;
+font-family: 'Delius Unicase', cursive;
+}
+.underline
+{
+border-bottom: 2px solid #0099CC;
+}
+.shadow
+{
+-webkit-box-shadow: 0 10px 10px rgba(0,0,0,1);
+-moz-box-shadow: 0 10px 10px rgba(0,0,0,1);
+}
+.NoUnderline
+{
+text-decoration: none!important;
+}
+.headers
+{
+font-family: 'Expletus Sans', cursive;
+text-align:justify;
+}
+.body-blocks
+{
+margin-bottom: 3%;
+text-align: justify;
+min-height: 10%;
+margin-top: 3em;
+}
+.grey
+{
+color: #999999;
+}
+.footer
+{
+margin-top: 3%;
+border-top: 1px dotted #000;
+min-height: 40px;
+font-size: 10px; 	
+}
+.affix
+{
+position: fixed;
+top:10px!important;
+}
+.justify
+{
+text-align:justify;
+}
+.body
+{
+font-family: 'Open Sans Condensed', sans-serif;
+}
+.line-through
+{
+text-decoration: line-through;
+}
+.no-border
+{
+border:none;
+}
+legend {
+  border-bottom: 2px solid #445566;!important
+}
+

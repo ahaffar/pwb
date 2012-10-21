@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>
+{%block title%}
+{%endblock%}
+</title>
+{% load polls_template %}
+<link href='http://fonts.googleapis.com/css?family=Delius+Unicase' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Expletus+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/side-bar.css" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/customization.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}bootstrap/js/bootstrap-affix.js"></script>
+<script>
+
+$(function()
+{ 
+	$('#blog').tooltip(
+	{
+			title: "Under Construction",
+			placement: 'bottom',
+			animation: 'True',
+			delay: { show: 250},
+	})
+});
+
+$(function ()
+{
+	$('#privacy_note').popover({
+		title: "Privacy",
+		animation: 'True',
+		content: "We oblige to protect your privacy and will not give, sell or rent your email adress to others",
+		trigger: 'hover',
+	})
+});
+
+$(function()
+{
+	$('#ReqPass').click(function ()
+	{
+		$('#OpenAuth').modal('hide');
+	})
+});
+
+$(function()
+{ $('#spy-menu').affix(
+{ offset: 60
+})
+});
+
+</script>
+
+</head>
+<body data-spy="scroll">
+<div class="container">
+	<div class="row">
+		<div class="shadow navbar">
+		<div class="navbar-inner">
+			<div class="container">
+			<a class="brand {%if ADDR == ' '%} active{%endif%}" href="{%url index%}">Mr - Haffar </a>
+				<ul class="nav">
+				<li class="{%if '/resume/' in ADDR %} active {%endif%}"> <a href="{%url resumes%}">Resume</a></li>
+				<li class="divider-vertical"></li>
+				<li class="{%if ADDR == '/contact_us/'%} active{%endif%}"><a href="{%url contacts%}">Contact Me</a></li>
+				<li class="divider-vertical"></li>
+				<li class="disbaled line-through"><a href="{%url index%}" id="blog">Blog</a></li>
+				<li class="divider-vertical"></li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Social <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+					<li class="nav-header">Social</li>
+					<li><a href="#">Twitter</a></li>
+					<li><a href="#">Facebook</a></li>
+					<li><a href="#">Bayt</a></li>
+					<li><a href="#">Linkedin</a></li>
+					</ul>
+				</li>
+				</ul>
+					<ul class="nav pull-right">
+					<li class="divider-vertical"></li>
+					<li><a href="#" data-toggle="modal" data-target="#OpenAuth">Sign In</a></li>
+					<li class="divider-vertical"></li>
+				</ul>
+			</div>
+		</div>
+		</div>
+	</div>
+<!---------------------------------------------------------------------------------------------------------------------------------------->	
+<!--Sign In Modal -->
+		<div class="body modal hide fade out" id="OpenAuth">
+			<div class="modal-header">
+				<button class="close" data-dismiss="modal" type="button">×</button>
+					<h2 class="black"> Login </h2>
+			</div>
+			<div class="modal-body">
+				<form>
+					<label>Username</label>
+					<input type="text" class="input-large" placeholder="Username"></input>
+					<label>Password</label>
+					<input type="password" class="input-large" placeholder="Password"></input>
+					<span class="help-block">Forgot Your Password<a class="NoUnderline" href="#" data-toggle="modal" 									data-target="#ForgotPassowrd" id="ReqPass">  Click Here</a></span>	
+					<span class="black">Or register via facebook:</span>
+					<br/>
+					<a class="btn btn-large btn-info"><img src="{{ STATIC_URL }}img/facebook.ico" />  Login via Facebook</a>
+					<a class="NoUnderline" id="privacy_note"><i class="icon-lock"></i>  We Protect Your Privacy</a>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button class="btn span1 btn-primary pull-left" value="Submit">Submit</button>
+				<button class="btn span1 btn-inverse pull-left" value="Submit">Close</button>
+			</div>
+		</div>
+<!--End of Sign In Modal -->	
+<!--Forgot Password Modal -->					
+		<div class="body modal hide fade" id="ForgotPassowrd">
+			<div class="modal-header">
+				<button class="close" data-dismiss="modal" type="button">×</button>
+				<h2 class="black"> Forgot Passowrd </h2>
+			</div>
+			<div class="modal-body">
+				<form>
+					<label>Password</label>
+					<input type="text" class="input-large" placeholder="Password"></input><br />
+					<button class="btn span3 btn-danger pull-left" value="Submit">Send me the Password</button>
+				</form>								
+			</div>
+		</div>
+<!--End of Forgot Password Modal -->
+<!----------------------------------------------------------------------------------------------------------------------------------------->
+{{request.PATH}}
+{%block body%}
+{%endblock%}
+<div class="row footer">
+	<strong>&copy</strong> Crafted by Mr. Haffar.
+</div>
+
+</body></html>

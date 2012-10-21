@@ -1,0 +1,103 @@
+{%extends 'base.html'%}
+
+{%block title%}
+:: Resume ::
+{%endblock%}
+{%block body%}
+<div class="row page-base">
+		<div class="span3">
+		        <ul id="spy-menu" class="headers nav nav-list bs-docs-sidenav affix"  data-spy="affix" data-offset-top="50">
+					<li><a href="#objective"><i class="icon-chevron-right"></i> 1. Objective</a></li>
+					<li><a href="#experience"><i class="icon-chevron-right"></i> 2. Experience</a></li>
+					<li><a href="#projects"><i class="icon-chevron-right"></i> 3. Successful Projects</a></li>
+					<li><a href="#procerts"><i class="icon-chevron-right"></i> 4. Professional Certifications</a></li>
+				</ul>
+		</div>
+		
+		<div class="span9">
+			<section id="objective">
+				<h1 class="headers underline">Resume<small>  Professional Experience</small></h1>
+				<h2 class="headers grey">Objectives</h2>
+				<p  class="justify">Possessing developed skills that have been gained through establishing and developing full IT projects, networks and Microsoft infrastructures from initial conception to completion. Experience covers design, testing and successful implementation within budget, scope, timeframes and project limitations. Extensive diverse expertise on Microsoft Infrastructure as well as experienced Cisco professional LAN, WAN and H/W experience, multi-site environment, maintaining the delivery of IT services and technology projects, up to date on IT Industrial developments
+				I am willingly exploring opportunities to further a successful career in Microsoft technologies as a key member of an organization that relies on optimal technology performance to achieve objectives and provides the opportunity to contribute to its growth.</p>
+			</section>
+			<section id="experience">
+				<h2 class="headers grey">Experience</h2>
+				<h2 class="headers">Warba Insurance Company<small> Senior System Engineer</small></h2>
+				<ul class="square">
+					<li>Creating a Highly Available VMs using Hyper-V Technology - Cloning VMs</li>
+					<li>Creating a Bulk Users and Mailboxes using PowerShell Scripts.</li>
+					<li>Administrating and Configuring - Exchange 2010, ADDS, GPOs.</li>
+					<li>Administrating SQL tasks such as backing up and recovering SQL DBs, Copying DBs from Servers to Another Server, Copying Specific tables, records, linked Server on SQL Server 2008 R2, User Permissions, Configuring Log Shipping. </li>
+					<li>Cisco Call Manger and Cisco Firewall - Rules and VPN.</li>
+					<li>Monitoring Servers using Windows PowerShell. [Scripting]</li>
+					<li>Configuring, Creating and Automating SQL SSIS Packages. </li>
+					<li>Data Migration from Old Systems [IBM] to SQL Server. </li>
+				</ul>
+					<h2 class="headers">Arabesque Group<small> Infrastructure System Engineer</small></h2>
+					<ul class="square">
+					<li>Designing and Implementing Microsoft based Infrastructure comprising of
+						<ul>
+						<li>System Center Operation Manager 2007</li>
+						<li>System Center Configuration Manager2007</li>
+						<li>Microsoft Exchange Server 2007 / 2010</li>
+						<li>Active Directory Domain Services</li>
+						</ul>
+					</li>
+					<li>Server Virtualization with Hyper-V/ VM-Ware ESX Server</li>
+					<li>360 Degree Management of physical infrastructure with SCVMM 2008/SCOM2007Etc.</li>
+					<li>Windows Rights management</li>
+					<li>WDS – Windows Deployment Services.</li>
+					<li>Configuration / Administration of Checkpoint Firewall</li>
+					<li>Administration of IBM DS 4700 Storage</li>
+					<li>Server Virtualization using VMWare ESX 4.0 (Creating Hosts, VMs, converting P2V and vice versa)</li>
+					<li>Configuring Mail filtering using Message Labs – Symantec (Content Filtering, Block Rules, Adding new MX Records)</li>
+					<li>Monitoring, Health Check of IBM Tivoli Storage Manager.</li>
+					<li>Creating new VLANS and assigning interface to specific VLans</li>
+					<li>Symantec Backup EXEC System Recover (Creating Images/Backup, Converting Images to Virtual Machines)</li>
+					<li>Websense gateway / Websense Security Manager for web filtering (Creating Reports, Creating new Policies/ filters based on organization requirements, assigning policies to Groups/Users/VLANS)</li>
+					</ul>
+					<h2 class="headers">Annahar Newspapaer<small> Head of Service Desk / System Administrator</small></h2>
+					<ul class="square">
+						<li>Installing, Configuring Windows 2008 Server, Windows 2003 Server, Windows Vista and Windows XP.</li>
+						<li>Installing, Configuring, Backing up and Applying Auditing Polices for Active Directory. And DNS</li>
+						<li>Customize and Implementing Group Policy for different purposes and Permissions.</li>
+						<li>Installing Configuring Microsoft Exchange Server 2007</li>
+						<li>Backup Exchange 2008 and recover user mailboxes and databases.</li>
+						<li>Working on WSUS – Windows System Update Services.</li>
+						<li>Implementing a data Provisioning solurion using DFS and FSRM in windows 2K8</li>
+						<li>Monitoring Servers, Writing Technical Reports.</li>
+						<li>Provide support for users in different areas (Printers, Computers and Networking).</li>
+					</ul>
+			</section>
+			<section id="projects">
+				<h2 class="headers grey">Projects</h2>
+				<ul class="square">
+					<li>Solution Architecting and migrating from Exchange 2003 to Exchange 2007 & Exchange 2010 – KUFPEC / KFG
+					<li>Designing Implementing System Center Operations Manager 2007, creating Distributed Application and configuring Synthetic Transactions – ZAIN / CBK
+					<li>Migration from Windows Server 2003 Active Directory to Windows Server 2008 Active Directory – KUFPEC / KFG
+					<li>Symantec Enterprise Vault for Mai Archiving -- KUFPEC
+					<li>Symantec Backup Exec System Recovery 2010 management console – KUFPEC
+					<li>Planning, implementing an automation deployment of Windows 7, Windows Server 2008.
+					<li>Implementing, Configuring a WSUS Server to deploy Windows Update Services (Upstream / Downstream) – KUFPEC /CBK
+					<li>Databas Migration from Sabil Informix - IBM to MS SQL 2008 R2 using SSIS and T-SQL</li>
+					<li>Manging and Monitoring Databases / Windows Servers Health Status by Powershell Scripts</li>
+					<li>Implementing a Unified Email Signature for all the company</li>
+					</ul>
+			</section>	
+			<section id="procerts">
+				<h2 class="headers grey">Professional Certifications</h2>
+				<ul class="square">
+					<li><em>MCITP</em> – Microsoft Exchange 2010, Enterprise Messaging Deployment</li>
+					<li><em>MCTS</em> – Microsoft Office Communication Server, Configuring</li>
+					<li><em>MCITP</em> – Microsoft Certified Information Technology Professional ( Windows Server 2K8 administrator).</li>
+					<li><em>MCTS</em> – Microsoft System Center Operation Manager</li>
+					<li><em>MCTS</em> – Microsoft Certified Technical Specialist ( Active Directory 2008, Network Infrastructure W2K8, Configuring Exchange Server 2007)</li>
+					<li><em>MCSA</em> – Microsoft Certified System Administrator</li>
+					<li><em>CCNA / Network+</em> – Cisco Certified Network Associate</li>
+					<li><em>ACHDS</em> Apple Certified Help Desk Specialist</li>
+				</ul>
+			</section>
+		</div>
+</div>
+{%endblock%}
